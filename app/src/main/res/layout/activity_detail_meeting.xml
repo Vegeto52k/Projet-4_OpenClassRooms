@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailMeetingActivity">
+
+    <ImageButton
+        android:id="@+id/profil_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/profil_return"
+        app:layout_constraintLeft_toRightOf="@+id/profil_return"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"/>
+
+    <TextView
+        android:id="@+id/profil_hall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salle"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/profil_return"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/profil_hall_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/profil_hall"
+        app:layout_constraintLeft_toRightOf="@+id/profil_hall"
+        tools:text="E" />
+
+    <TextView
+        android:id="@+id/profil_object"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Objet de la réunion"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/profil_hall"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:id="@+id/profil_object_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:maxLines="3"
+        app:layout_constraintTop_toBottomOf="@+id/profil_object"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="Conseil Administratif" />
+
+    <TextView
+        android:id="@+id/profil_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Date"
+        android:textStyle="italic"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/profil_object_view"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/profil_date_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profil_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="14/03/2022" />
+
+    <TextView
+        android:id="@+id/profil_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="100dp"
+        android:text="Début"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@+id/profil_date_view"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/profil_start_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profil_start"
+        app:layout_constraintLeft_toLeftOf="@+id/profil_start"
+        app:layout_constraintRight_toRightOf="@+id/profil_start"
+        tools:text="14:15" />
+
+    <TextView
+        android:id="@+id/profil_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Fin"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toTopOf="@+id/profil_start"
+        app:layout_constraintLeft_toRightOf="@+id/profil_start" />
+    <TextView
+        android:id="@+id/profil_end_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profil_end"
+        app:layout_constraintLeft_toLeftOf="@+id/profil_end"
+        app:layout_constraintRight_toRightOf="@+id/profil_end"
+        tools:text="16:30" />
+
+    <TextView
+        android:id="@+id/profil_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Mail des personnes conviées à la réunion"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@+id/profil_start_view"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:id="@+id/profil_people_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/profil_people"
+        tools:text="bill@gmail.com, eva@gmail.com, charles@gmail.com, matthew@gmail.com, livia@gmail.com, victor@gmail.com, adam@gmail.com"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

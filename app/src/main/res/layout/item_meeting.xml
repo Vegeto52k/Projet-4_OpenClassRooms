@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:id="@+id/meeting_hall_circle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    
+    <TextView
+        android:id="@+id/meeting_hall_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_hall_circle"
+        app:layout_constraintEnd_toEndOf="@+id/meeting_hall_circle"
+        app:layout_constraintStart_toStartOf="@+id/meeting_hall_circle"
+        app:layout_constraintTop_toTopOf="@+id/meeting_hall_circle"
+        tools:text="C" />
+    
+    <TextView
+        android:id="@+id/meeting_infos"
+        android:layout_width="wrap_content"
+        android:maxWidth="130dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/meeting_hall_circle"
+        app:layout_constraintTop_toTopOf="@+id/meeting_hall_circle"
+        tools:text="Réunion Hebdo " />
+
+    <TextView
+        android:id="@+id/meeting_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginStart="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/meeting_infos"
+        app:layout_constraintTop_toTopOf="@+id/meeting_infos"
+        tools:text="08-03-2022 " />
+
+    <TextView
+        android:id="@+id/meeting_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginStart="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/meeting_date"
+        app:layout_constraintTop_toTopOf="@+id/meeting_infos"
+        tools:text="14:30" />
+
+    <TextView
+        android:id="@+id/meeting_people"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/meeting_hall_circle"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_infos"
+        tools:text="bill@gmail.com, eva@gmail.com" />
+
+    <ImageButton
+        android:id="@+id/meeting_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meeting_infos"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_infos"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/delete_button"
+        app:tint="#292929"
+        android:backgroundTint="@color/white"
+        android:scaleX="1.2"
+        android:scaleY="1.2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
