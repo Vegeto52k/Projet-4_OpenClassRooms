@@ -64,6 +64,7 @@ public class AddMeetingActivity extends AppCompatActivity implements AdapterView
         backButton();
         spinnerHall();
         addMeeting();
+    //    checkSpinner();
     }
 
     private void initData() {
@@ -161,6 +162,46 @@ public class AddMeetingActivity extends AppCompatActivity implements AdapterView
         selectHallSpinner.setOnItemSelectedListener(this);
     }
 
+    private void checkSpinner(){
+
+        selectHallSpinner = findViewById(R.id.spinner_hall);
+        date = findViewById(R.id.edit_date);
+        startMeeting = findViewById(R.id.edit_start_hour);
+        endMeeting = findViewById(R.id.edit_end_hour);
+
+        String date = mBinding.editDate.getText().toString();
+        String startMeeting = mBinding.editStartHour.getText().toString();
+        String endMeeting = mBinding.editEndHour.getText().toString();
+
+        String selectHallSpinner2 = mBinding.spinnerHall.getSelectedItem().toString();        Calendar calDate = Calendar.getInstance();
+        calDate.setTime(finalDateData);
+        Calendar calStart = Calendar.getInstance();
+        calStart.setTime(finalStartHourData);
+        Calendar calEnd = Calendar.getInstance();
+        calEnd.setTime(finalEndHourData);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.hall, android.R.layout.simple_spinner_item);
+
+        for (int i = 0; i < mMeetingArrayList.size(); i++) {
+            Calendar calendarDate = Calendar.getInstance();
+            calendarDate.setTime(mMeetingArrayList.get(i).getDate());
+            Calendar calendarStart = Calendar.getInstance();
+            calendarStart.setTime(mMeetingArrayList.get(i).getStartTime());
+            Calendar calendarEnd = Calendar.getInstance();
+            calendarEnd.setTime(mMeetingArrayList.get(i).getEndTime());
+            if (selectHallSpinner2.equals(mMeetingArrayList.get(i).getHallLetter()) &&
+                    calDate.equals(calendarDate) &&
+                    (calStart.equals(calendarStart) || calStart.before(calendarEnd)) &&
+                    (calEnd.equals(calendarEnd) || calEnd.after(calendarStart))) {
+                adapter.remove(selectHallSpinner2);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                selectHallSpinner.setAdapter(adapter);
+                selectHallSpinner.setOnItemSelectedListener(this);
+                Toast.makeText(AddMeetingActivity.this, "Une réunion est déjà prévue sur ce créneau horaire dans cette salle. Veuillez ressaisir votre réunion.", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         hallSpinnerSelected = adapterView.getItemAtPosition(i).toString();
@@ -251,6 +292,16 @@ public class AddMeetingActivity extends AppCompatActivity implements AdapterView
         calStart.setTime(finalStartHourData);
         Calendar calEnd = Calendar.getInstance();
         calEnd.setTime(finalEndHourData);
+        Date calendar = Calendar.getInstance().getTime();
+
+        if (calStart.after(calEnd)){
+            Toast.makeText(AddMeetingActivity.this, "L'heure de début de la réunion ne peut pas être après l'heure de fin. Veuillez rentrer une horaire valide.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (calendar.after(finalDateData)){
+            Toast.makeText(AddMeetingActivity.this, "Vous ne pouvez pas entrer une date antérieure à la date d'aujourd'hui. Veuillez entrer une date valide.", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         for (int i = 0; i < mMeetingArrayList.size(); i++) {
             Calendar calendarDate = Calendar.getInstance();
