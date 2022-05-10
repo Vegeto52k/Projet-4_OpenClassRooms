@@ -3,14 +3,8 @@ package fr.vegeto52.mareu.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.material.timepicker.MaterialTimePicker;
-
 import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Vegeto52-PC on 09/03/2022.
@@ -39,7 +33,6 @@ public class Meeting implements Parcelable {
         parcel.writeString(infos);
         parcel.writeString(people);
         parcel.writeLong(date.getTime());
-        //   parcel.writeSerializable(date);
         parcel.writeLong(startTime.getTime());
         parcel.writeLong(endTime.getTime());
     }
@@ -49,7 +42,6 @@ public class Meeting implements Parcelable {
         infos = in.readString();
         people = in.readString();
         date = new Date(in.readLong());
-        //  date = (java.util.Date) in.readSerializable();
         startTime = new Date(in.readLong());
         endTime = new Date(in.readLong());
     }

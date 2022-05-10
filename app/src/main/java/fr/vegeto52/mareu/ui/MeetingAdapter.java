@@ -1,23 +1,17 @@
 package fr.vegeto52.mareu.ui;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.timepicker.MaterialTimePicker;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 import fr.vegeto52.mareu.DI.DI;
 import fr.vegeto52.mareu.R;
@@ -25,9 +19,6 @@ import fr.vegeto52.mareu.model.Meeting;
 import fr.vegeto52.mareu.service.MeetingApiService;
 
 
-/**
- * Created by Vegeto52-PC on 08/03/2022.
- */
 public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHolder> {
 
     private MeetingApiService mMeetingApiService = DI.getMeetingApiService();
@@ -48,8 +39,6 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.displayMeeting(mMeetings.get(position));
-
-
     }
 
     @Override
@@ -57,7 +46,7 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
         return mMeetings.size();
     }
 
-    public Meeting getMeeting(int position){
+    public Meeting getMeeting(int position) {
         return this.mMeetings.get(position);
     }
 
@@ -92,11 +81,10 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
                 mAdapter.mMeetingApiService.deleteMeeting(meeting);
                 mAdapter.mMeetings.remove(getLayoutPosition());
                 mAdapter.notifyItemRemoved(getLayoutPosition());
-                Log.d("Test", "J'ai delete " + mAdapter.mMeetings.size() + " " + mAdapter.mMeetingApiService.getMeeting().size());
             });
         }
 
-        public ViewHolder linkAdapter(MeetingAdapter adapter){
+        public ViewHolder linkAdapter(MeetingAdapter adapter) {
             this.mAdapter = adapter;
             return this;
         }
@@ -113,12 +101,5 @@ public class MeetingAdapter extends RecyclerView.Adapter<MeetingAdapter.ViewHold
             time.setText(simpleDateFormat1.format(meeting.getStartTime()));
 
         }
-
- //       public void deleteMeeting(int position){
- //           Meeting atRemove = mAdapter.getMeeting(position);
- //           mAdapter.mMeetingApiService.deleteMeeting(atRemove);
- //       }
-
     }
-
 }

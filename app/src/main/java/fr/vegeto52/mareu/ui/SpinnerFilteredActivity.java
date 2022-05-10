@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import fr.vegeto52.mareu.DI.DI;
 import fr.vegeto52.mareu.R;
@@ -26,7 +24,6 @@ public class SpinnerFilteredActivity extends AppCompatActivity implements Adapte
     private ArrayList<Meeting> mMeetingArrayList;
     private MeetingApiService mMeetingApiService = DI.getMeetingApiService();
     private String hallselect;
-    private MainActivity mMainActivity;
 
     Spinner mSpinner;
     Button mButton;

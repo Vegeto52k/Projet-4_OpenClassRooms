@@ -13,10 +13,10 @@
             android:name=".ui.SpinnerFilteredActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailMeetingActivity"
+            android:name=".ui.DetailMeetingActivity"
             android:exported="false" />
         <activity
-            android:name=".AddMeetingActivity"
+            android:name=".ui.AddMeetingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

@@ -2,8 +2,6 @@ package fr.vegeto52.mareu.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,27 +9,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
-import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
-import fr.vegeto52.mareu.AddMeetingActivity;
 import fr.vegeto52.mareu.DI.DI;
-import fr.vegeto52.mareu.DetailMeetingActivity;
 import fr.vegeto52.mareu.R;
 import fr.vegeto52.mareu.databinding.ActivityMainBinding;
 import fr.vegeto52.mareu.model.Meeting;
@@ -43,33 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActivityMainBinding mBinding;
     private ArrayList<Meeting> mMeetingArrayList;
-    private RecyclerView mRecyclerView;
     private MeetingApiService mMeetingApiService = DI.getMeetingApiService();
     private FloatingActionButton addButton;
-    private MeetingAdapter mMeetingAdapter;
-    private ImageButton deleteButton;
-
-    private boolean switchStart;
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        initData();
-//        initUI();
-//        openAddActivity();
-//        configureOnClickRecyclerView();
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
-        initData();
-        Log.d("Test", "saved null");
+            initData();
         }
         if (savedInstanceState != null) {
             mMeetingArrayList = new ArrayList<>(DummyMeetingGenerator.DUMMY_MEETING);
-            Log.d("Test", "saved non null");
         }
         initUI();
         openAddActivity();
@@ -91,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mBinding.recyclerview.setLayoutManager(layoutManager);
         MeetingAdapter meetingAdapter = new MeetingAdapter(mMeetingArrayList);
-        Log.d("Test", " " + mMeetingArrayList.size());
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mBinding.recyclerview.getContext(), layoutManager.getOrientation());
         mBinding.recyclerview.addItemDecoration(dividerItemDecoration);
         mBinding.recyclerview.setAdapter(meetingAdapter);
@@ -171,9 +144,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void dateDialog() {
-        int selectedYear = 2022;
-        int selectedMonth = 2;
-        int selectedDayOfMonth = 14;
+        Calendar calendar = Calendar.getInstance();
+        final int selectedYear = calendar.get(Calendar.YEAR);
+        final int selectedMonth = calendar.get(Calendar.MONTH);
+        final int selectedDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -194,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        resetFilter();
         returnResultHallDialog();
     }
 
@@ -203,18 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("Test", "onDestroy lancé");
-    }
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
     }
 }

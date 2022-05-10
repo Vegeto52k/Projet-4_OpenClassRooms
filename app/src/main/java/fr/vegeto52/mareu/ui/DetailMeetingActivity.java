@@ -1,4 +1,4 @@
-package fr.vegeto52.mareu;
+package fr.vegeto52.mareu.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,17 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
-import fr.vegeto52.mareu.databinding.ActivityAddMeetingBinding;
+import fr.vegeto52.mareu.R;
 import fr.vegeto52.mareu.databinding.ActivityDetailMeetingBinding;
 import fr.vegeto52.mareu.model.Meeting;
-import fr.vegeto52.mareu.ui.MainActivity;
-import fr.vegeto52.mareu.ui.SpinnerFilteredActivity;
 
 public class DetailMeetingActivity extends AppCompatActivity {
 
@@ -32,7 +27,6 @@ public class DetailMeetingActivity extends AppCompatActivity {
     TextView start;
     TextView end;
     TextView people;
-
 
 
     @Override
@@ -49,7 +43,7 @@ public class DetailMeetingActivity extends AppCompatActivity {
         setContentView(view);
     }
 
-    private void detailCompleted(){
+    private void detailCompleted() {
 
         Intent intent = getIntent();
         Meeting meeting = intent.getParcelableExtra("Meeting");
@@ -87,13 +81,11 @@ public class DetailMeetingActivity extends AppCompatActivity {
 
     }
 
-    private void backButton(){
+    private void backButton() {
         backButton = findViewById(R.id.profil_return);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailMeetingActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });

@@ -1,7 +1,5 @@
 package fr.vegeto52.mareu.service;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,11 +52,10 @@ public class DummyMeetingApiService implements MeetingApiService {
         ArrayList<Meeting> result = new ArrayList<>();
 
         for (int i = 0; i < mMeetings.size(); i++) {
-            if (mMeetings.get(i).getHallLetter().equals(hallLetter)){
+            if (mMeetings.get(i).getHallLetter().equals(hallLetter)) {
                 result.add(mMeetings.get(i));
             }
         }
-        Log.d("Test", "" + result.size());
         return result;
     }
 }

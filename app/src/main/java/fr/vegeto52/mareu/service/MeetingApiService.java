@@ -13,25 +13,37 @@ public interface MeetingApiService {
 
     /**
      * Get all Meeting
+     *
      * @return
      */
     List<Meeting> getMeeting();
 
     /**
      * Delete Meeting
+     *
      * @param meeting
      */
     void deleteMeeting(Meeting meeting);
 
     /**
      * Create Meeting
+     *
      * @param meeting
      */
     void createMeeting(Meeting meeting);
 
+    /**
+     * Filter by date
+     *
+     * @param date
+     */
     ArrayList<Meeting> getMeetingFilteredByDate(Date date);
 
+    /**
+     * Filter by hall
+     *
+     * @param hallLetter
+     */
     ArrayList<Meeting> getMeetingFilteredByHall(String hallLetter);
-
 
 }
