@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/filter_date"
-        android:title="Filter by date"
+        android:title="Filtrer par date"
         app:showAsAction="never" />
 
     <item android:id="@+id/filter_hall"
-        android:title="Filter by hall"
+        android:title="Filtrer par salle"
         app:showAsAction="never"/>
 
     <item android:id="@+id/filter_reset"
-        android:title="Filter reset"
+        android:title="Réinitialiser filtre"
         app:showAsAction="never" />
 
 </menu>
